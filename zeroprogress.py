@@ -3,6 +3,7 @@ import time
 
 def open_file():
   #this would be the insert system
+  txt_box.delete('1.0', END)
   txt_box.insert(END, input_text)
 def save_file():
   alert.set("File has (not) been saved!")
