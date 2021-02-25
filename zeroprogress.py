@@ -56,7 +56,7 @@ def put():
 #Setting the basics up
 root = Tk()
 root.title("Arrow Gui")
-root.rowconfigure(0, minsize=50, weight=1)
+root.rowconfigure(0, minsize=50, weight=0)
 root.columnconfigure(0, minsize=400, weight=1)
 root.geometry('415x300')
 message = StringVar()
