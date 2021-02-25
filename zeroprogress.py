@@ -1,9 +1,10 @@
 from tkinter import *
 
 #Edit these using hex values to change colour scheme
-text_bg = '#FABC45'
-panel_bg = '#676543'
-button_bg = '#566765'
+text_bg = '#36393F'
+panel_bg = '#202225'
+button_bg = '#36393F'
+button_fg = '#FFFFFF'
 
 def open_file():
   #this would be the insert system
@@ -29,9 +30,9 @@ def establish():
   S_panel = Frame(root)
   S_panel.grid(row = 1, sticky = "n")
   S_panel['background']=panel_bg
-  O_font = Button(S_panel, bg = button_bg,highlightthickness = 0,text = 'Font',command = lambda: rem('opt1'))
-  O_cct = Button(S_panel, bg = button_bg,highlightthickness = 0,text = 'CC Toggle',command = lambda: rem('opt2'))
-  O_ccl = Button(S_panel, bg = button_bg,highlightthickness = 0, text = 'CC List',command = lambda: rem('opt3'))
+  O_font = Button(S_panel, bg = button_bg,activebackground=panel_bg,fg = button_fg,highlightthickness = 0,text = 'Font',command = lambda: rem('opt1'))
+  O_cct = Button(S_panel, bg = button_bg,activebackground=panel_bg,fg = button_fg,highlightthickness = 0,text = 'CC Toggle',command = lambda: rem('opt2'))
+  O_ccl = Button(S_panel, bg = button_bg,activebackground=panel_bg,fg = button_fg,highlightthickness = 0, text = 'CC List',command = lambda: rem('opt3'))
 
 def rem(info):
   #gets rid of settings panel and also handles button input
@@ -74,13 +75,13 @@ panel.columnconfigure(5, minsize=30, weight=1)
 #Extraordinarily messy blob of text so it's organised
 alert = Label(panel, textvariable = message, bg = panel_bg)
 
-B_open = Button(panel, text="Open", command=open_file,bg = button_bg,highlightthickness = 0)
+B_open = Button(panel, text="Open", command=open_file,bg = button_bg,activebackground=panel_bg,fg = button_fg,highlightthickness = 0)
 
-B_save = Button(panel, text="Save", command=save_file, bg = button_bg,highlightthickness = 0)
+B_save = Button(panel, text="Save", command=save_file, bg = button_bg,activebackground=panel_bg,fg = button_fg,highlightthickness = 0)
 
-B_settings = Button(panel, anchor = W, text = '\u2699', font=("Courier", 20), padx = 3,bd= 0,bg = panel_bg,highlightthickness = 0, command = put)
+B_settings = Button(panel, anchor = W, text = '\u2699', font=("Courier", 20), padx = 3,bd= 0,bg = panel_bg,fg = button_fg,activebackground=panel_bg,highlightthickness = 0, command = put)
 
-B_qsave = Button(panel, anchor = E, text = '\u25BC', bd = 0,command = Qsave, bg = panel_bg,highlightthickness = 0)
+B_qsave = Button(panel, anchor = E, text = '\u25BC', bd = 0,command = Qsave, bg = panel_bg,fg = button_fg,activebackground=panel_bg,highlightthickness = 0)
 
 B_open.grid(row=0, column=0, sticky="ew", padx=5, pady=5)
 B_save.grid(row=0, column=1, sticky="ew", padx=5)
@@ -95,6 +96,7 @@ txt_box.grid(row=1, column=0, sticky="nsew")
 
 #Just some touching up
 txt_box['background']=text_bg
+txt_box['foreground']=button_fg
 panel['background']=panel_bg
 
 mainloop()
