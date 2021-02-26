@@ -3,3 +3,6 @@ echo "Removing leftover files from install in Downloads (unzip)..."
 sudo rm -rf ~/Downloads/arrow
 echo "Removing leftover files from install in Downloads (zip)..."
 sudo rm -rf ~/Downloads/arrow-text-editor.zip
+echo "Removing leftover files from install in Downloads (readme)..."
+sudo rm ~/Downloads/README.md
+echo "All done!"
