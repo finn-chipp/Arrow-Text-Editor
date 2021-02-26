@@ -17,17 +17,17 @@ else
 	exit
 fi
 echo "Moving main components to /usr/bin..."
-sudo mv ~/Downloads/arrow-text-editor/arrow/main/arrow_main /usr/bin
+sudo mv ~/Downloads/arrow-text-editor-main/arrow/main/arrow_main /usr/bin
 echo "Moving initiator to /usr/bin..."
-sudo mv ~/Downloads/arrow-text-editor/arrow/main/arrow /usr/bin
+sudo mv ~/Downloads/arrow-text-editor-main/arrow/main/arrow /usr/bin
 echo "Making initiator executable..."
 sudo chmod +x /usr/bin/arrow
 echo "Moving uninstall script to /usr/bin..."
-sudo mv ~/Downloads/arrow-text-editor/arrow/main/arrow-uninstall /usr/bin
+sudo mv ~/Downloads/arrow-text-editor-main/arrow/main/arrow-uninstall /usr/bin
 echo "Making uninstall script executable..."
 sudo chmod +x /usr/bin/arrow-uninstall
 echo "Moving leftovers remover to Downloads..."
-mv ~/Downloads/arrow-text-editor/arrow/main/delete-this ~/Downloads
+mv ~/Downloads/arrow-text-editor-main/arrow/main/delete-this ~/Downloads
 echo "Making leftovers remover executable..."
 chmod +x ~/Downloads/delete-this
 echo "Installation is complete, run arrow by typing 'arrow' and uninstall it by running 'arrow-uninstall && sudo rm /usr/bin/arrow-uninstall'"
