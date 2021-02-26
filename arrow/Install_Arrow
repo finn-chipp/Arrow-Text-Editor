@@ -32,4 +32,4 @@ echo "Making leftovers remover executable..."
 chmod +x ~/Downloads/delete-this
 echo "Installation is complete, run arrow by typing 'arrow' and uninstall it by running 'arrow-uninstall && sudo rm /usr/bin/arrow-uninstall'"
 echo "Running leftovers remover..."
-.~/Downloads/delete-this
+cd ~/Downloads && ./delete-this
