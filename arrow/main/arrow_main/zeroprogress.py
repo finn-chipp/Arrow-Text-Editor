@@ -99,4 +99,7 @@ txt_box['background']=text_bg
 txt_box['foreground']=button_fg
 panel['background']=panel_bg
 
+photo = PhotoImage(file = "'arrow_icon.png")
+master.iconphoto(False, photo)
+
 mainloop()
