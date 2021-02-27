@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "Removing main components..."
+sudo rm -rf /usr/bin/arrow_main
+echo "Removing initiator..."
+sudo rm /usr/bin/arrow
+echo "Removing .desktop launcher..."
+sudo rm /usr/share/applications/Arrow.desktop
+echo "Done! We'll miss you!"

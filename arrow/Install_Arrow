@@ -1,0 +1,39 @@
+#!/bin/bash
+read -p "What is your system of choice? [A]rch, [U]buntu: " sys
+if [ ${sys^^} == "A" ]
+then
+	echo "Installing python3 if not already installed..."
+	sudo pacman -S python3
+	echo "Installing tk if not already installed..."
+	sudo pacman -S tk
+elif [ ${sys^^} == "U" ]
+then
+	echo "Installing python3 if not already installed..."
+	sudo apt-get install python3
+	echo "Installing tk if not already installed..."
+	sudo apt-get install tk
+else
+	echo "Abort!"
+	exit
+fi
+echo "Moving main components to /usr/bin..."
+sudo mv ~/Downloads/arrow-text-editor-main/arrow/main/arrow_main /usr/bin
+echo "Moving initiator to /usr/bin..."
+sudo mv ~/Downloads/arrow-text-editor-main/arrow/main/arrow /usr/bin
+echo "Making initiator executable..."
+sudo chmod +x /usr/bin/arrow
+echo "Moving .desktop launcher to /usr/share/applications..."
+sudo mv ~/Downloads/arrow-text-editor-main/arrow/main/Arrow.desktop /usr/share/applications
+echo "Making .desktop launcher executable..."
+sudo chmod +x /usr/share/applications/Arrow.desktop
+echo "Moving uninstall script to /usr/bin..."
+sudo mv ~/Downloads/arrow-text-editor-main/arrow/main/arrow-uninstall /usr/bin
+echo "Making uninstall script executable..."
+sudo chmod +x /usr/bin/arrow-uninstall
+echo "Moving leftovers remover to Downloads..."
+mv ~/Downloads/arrow-text-editor-main/arrow/main/delete-this ~/Downloads
+echo "Making leftovers remover executable..."
+chmod +x ~/Downloads/delete-this
+echo "Installation is complete, run arrow by typing 'arrow' and uninstall it by running 'arrow-uninstall && sudo rm /usr/bin/arrow-uninstall'"
+echo "Running leftovers remover..."
+cd ~/Downloads && ./delete-this
