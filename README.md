@@ -11,6 +11,7 @@ To install:
 To use:
 
 Open the terminal and type: arrow
+Or open your application launcher and click on it
 
 To uninstall:
 
