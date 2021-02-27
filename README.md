@@ -8,7 +8,7 @@ To install (steps):
 2) Open the terminal
 3) Type: cd ~/Downloads/arrow-text-editor-main/arrow && chmod +x Install_Arrow && ./Install_Arrow
 
-Usage methods:
+Usage methods (either can be used):
 
 1) Open the terminal and type: arrow
 2) Open your application launcher and click on it
