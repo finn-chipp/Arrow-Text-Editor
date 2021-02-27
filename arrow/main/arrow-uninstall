@@ -1,6 +1,0 @@
-#!/bin/bash
-echo "Removing main components..."
-sudo rm -rf /usr/bin/arrow_main
-echo "Removing initiator..."
-sudo rm /usr/bin/arrow
-echo "Done! We'll miss you!"
