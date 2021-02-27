@@ -2,16 +2,16 @@
 
 Text editor with gui for Linux systems. Super lightweight and easy to use.
 
-To install:
+To install (steps):
 
 1) Extract "arrow-text-editor-main" to Downloads
 2) Open the terminal
 3) Type: cd ~/Downloads/arrow-text-editor-main/arrow && chmod +x Install_Arrow && ./Install_Arrow
 
-To use:
+Usage methods:
 
-Open the terminal and type: arrow
-Or open your application launcher and click on it
+1) Open the terminal and type: arrow
+2) Open your application launcher and click on it
 
 To uninstall:
 
