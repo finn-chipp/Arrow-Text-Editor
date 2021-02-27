@@ -15,6 +15,6 @@ Usage methods (either can be used):
 
 To uninstall:
 
-Open the terminal and type: arrow-uninstall && sudo rm /usr/bin/arrow-uninstall
+1) Open the terminal and type: arrow-uninstall && sudo rm /usr/bin/arrow-uninstall
 
 --------------------------- Enjoy using the text editor! ---------------------------
