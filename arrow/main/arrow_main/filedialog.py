@@ -1,3 +1,4 @@
+#this is obviosly not my/our code, I just got the source code of tk filelog because i couldn't figure out a way to install it.
 """File selection dialog classes.
 Classes:
 - FileDialog
