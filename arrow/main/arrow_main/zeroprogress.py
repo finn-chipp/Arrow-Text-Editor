@@ -1,4 +1,6 @@
 from tkinter import *
+from tkinter import filedialog
+import goat
 
 #Edit these using hex values to change colour scheme
 text_bg = '#36393F'
@@ -8,12 +10,15 @@ button_fg = '#FFFFFF'
 
 def open_file():
   #this would be the insert system
+  fileIn = open(browseFiles('load'), 'r')
   txt_box.delete('1.0', END)
-  txt_box.insert(END, input_text)
+  txt_box.insert(END, fileIn.read())
 
 def save_file():
   #this would be the save system
-  message.set("File has (not) been saved!")
+  fileIn = open(browseFiles('save'), 'w')
+  fileIn.write(txt_box.get("1.0","end"))
+  message.set("File has been saved!")
   root.after(2500, clear_alert)
 
 def clear_alert():
@@ -21,37 +26,48 @@ def clear_alert():
   message.set("")
 
 def Qsave():
-  #Quick save to be added
-  pass
-
+  goat.quicksave(txt_box.get("1.0","end"), filename)
+  message.set("Quicksaving...")
+  root.after(2500, clear_alert)
+  
 def establish():
   #just makes the settings buttons and shows S_panel
-  global S_panel, O_font, O_cct, O_ccl
+  global S_panel, FontDis, FontUp, FontDown, FontEx
   S_panel = Frame(root)
   S_panel.grid(row = 1, sticky = "n")
   S_panel['background']=panel_bg
-  O_font = Button(S_panel, bg = button_bg,activebackground=panel_bg,fg = button_fg,highlightthickness = 0,text = 'Font',command = lambda: rem('opt1'))
-  O_cct = Button(S_panel, bg = button_bg,activebackground=panel_bg,fg = button_fg,highlightthickness = 0,text = 'CC Toggle',command = lambda: rem('opt2'))
-  O_ccl = Button(S_panel, bg = button_bg,activebackground=panel_bg,fg = button_fg,highlightthickness = 0, text = 'CC List',command = lambda: rem('opt3'))
+  FontDown = Button(S_panel, bg = button_bg,activebackground=panel_bg,fg = button_fg,highlightthickness = 0,text = '-',command = lambda: rem('down'))
+  FontDis = Label(S_panel, bg = button_bg,activebackground=panel_bg,fg = button_fg,highlightthickness = 0,textvariable = FontSize)
+  FontUp = Button(S_panel, bg = button_bg,activebackground=panel_bg,fg = button_fg,highlightthickness = 0, text = '+',command = lambda: rem('up'))
+  FontEx = Button(S_panel, bg = button_bg,activebackground=panel_bg,fg = button_fg,highlightthickness = 0,text = 'Exit',command = lambda: rem('exit'))
 
 def rem(info):
   #gets rid of settings panel and also handles button input
-  S_panel.destroy()
-  if info == 'opt1':
-    print('1')
-  elif info == 'opt2':
-    print('2')
+  if info == 'up':
+    FontSize.set(FontSize.get() + 1)
+    txt_box['font'] = ("Courier", FontSize.get())
+  elif info == 'down':
+    FontSize.set(FontSize.get() - 1)
+    txt_box['font'] = ("Courier", FontSize.get())
   else:
-    print('3')
+    S_panel.destroy()
 
 def put():
   #*makes* and packs option buttons for S_panel
   global S_panel
   if S_panel.winfo_exists() == 0:
     establish()
-  O_font.pack(side = 'left', padx = 5, pady = 5)
-  O_cct.pack(side = 'left', padx = 5, pady = 5)
-  O_ccl.pack(side = 'left', padx = 5, pady = 5)
+  FontDis.pack(side = 'left', padx = 5, pady = 5)
+  FontDown.pack(side = 'left', padx = 5, pady = 5)
+  FontUp.pack(side = 'left', padx = 5, pady = 5)
+  FontEx.pack(side = 'left', padx = 5, pady = 5)
+
+def browseFiles(arg):
+  if arg == 'load':
+    filename = filedialog.askopenfilename(initialdir = "/", title = "Select a File", filetypes = (("Text files", "*.txt*"), ("all files", "*.*")))
+  else:
+    filename = filedialog.asksaveasfilename(initialdir = "/", title = "Select a File", filetypes = (("Text files", "*.txt*"), ("all files", "*.*")))
+  return filename
 
 #Setting the basics up
 root = Tk()
@@ -60,11 +76,8 @@ root.rowconfigure(0, minsize=50, weight=0)
 root.columnconfigure(0, minsize=400, weight=1)
 root.geometry('415x300')
 message = StringVar()
-
-#------
-input_text = 'qwertyuiop\nasdfghjkl\nzxcvbnm'
-#Just to demonstrate, please remove
-#------
+FontSize = IntVar()
+FontSize.set(10)
 
 #splits the sreen into 2 sections
 txt_box = Text(root, width = 25, height =  20)
@@ -73,7 +86,7 @@ panel.columnconfigure(5, minsize=30, weight=1)
 
 #___________________________________________________________
 #Extraordinarily messy blob of text so it's organised
-alert = Label(panel, textvariable = message, bg = panel_bg)
+alert = Label(panel, textvariable = message, bg = panel_bg, fg = button_fg)
 
 B_open = Button(panel, text="Open", command=open_file,bg = button_bg,activebackground=panel_bg,fg = button_fg,highlightthickness = 0)
 
@@ -98,8 +111,5 @@ txt_box.grid(row=1, column=0, sticky="nsew")
 txt_box['background']=text_bg
 txt_box['foreground']=button_fg
 panel['background']=panel_bg
-
-photo = PhotoImage(file = "'arrow_icon.png")
-master.iconphoto(False, photo)
 
 mainloop()
