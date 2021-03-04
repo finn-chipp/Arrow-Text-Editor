@@ -4,4 +4,4 @@ sudo rm -rf ~/Downloads/arrow-text-editor-main
 echo "Removing leftover files from install in Downloads (zip)..."
 sudo rm -rf ~/Downloads/arrow-text-editor-main.zip
 echo "All done!"
-cd ~/
+cd ~/Documents
