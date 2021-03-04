@@ -2,6 +2,9 @@
 
 Text editor with gui for Linux systems. Super lightweight and easy to use.
 
+There are multiple versions of Arrow. Find notation and instructions here: 
+
+
 To install (steps):
 
 1) Extract "arrow-text-editor-main" to Downloads
