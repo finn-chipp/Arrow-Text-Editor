@@ -1,6 +1,5 @@
 from tkinter import *
 import filedialog
-import goat
 
 #Edit these using hex values to change colour scheme
 text_bg = '#36393F'
@@ -26,7 +25,9 @@ def clear_alert():
   message.set("")
 
 def Qsave():
-  goat.quicksave(txt_box.get("1.0","end"), filename)
+  f = open(CurPath, "w")
+  f.write(txt_box.get("1.0","end"))
+  f.close()
   message.set("Quicksaving...")
   root.after(2500, clear_alert)
   
@@ -63,10 +64,12 @@ def put():
   FontEx.pack(side = 'left', padx = 5, pady = 5)
 
 def browseFiles(arg):
+  global CurPath
   if arg == 'load':
     filename = filedialog.askopenfilename(initialdir = "/", title = "Select a File", filetypes = (("Text files", "*.txt*"), ("all files", "*.*")))
   else:
     filename = filedialog.asksaveasfilename(initialdir = "/", title = "Select a File", filetypes = (("Text files", "*.txt*"), ("all files", "*.*")))
+  CurPath = filename
   return filename
 
 #Setting the basics up
@@ -78,6 +81,7 @@ root.geometry('415x300')
 message = StringVar()
 FontSize = IntVar()
 FontSize.set(10)
+CurPath = ''
 
 #splits the sreen into 2 sections
 txt_box = Text(root, width = 25, height =  20)
