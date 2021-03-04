@@ -6,7 +6,7 @@ To install (steps):
 
 1) Extract "arrow-text-editor-main" to Downloads
 2) Open the terminal
-3) Type: cd ~/Downloads/arrow-text-editor-main/arrow && chmod +x Install_Arrow && ./Install_Arrow
+3) Type: cd ~/Downloads/arrow-text-editor-main/arrow && chmod +x Install_Arrow && ./Install_Arrow && cd
 
 Usage methods (either can be used):
 
