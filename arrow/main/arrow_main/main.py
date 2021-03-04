@@ -66,9 +66,9 @@ def put():
 def browseFiles(arg):
   global CurPath
   if arg == 'load':
-    filename = filedialog.askopenfilename(initialdir = "/usr/bin/arrow_main", title = "Select a File", filetypes = (("Text files", "*.txt*"), ("all files", "*.*")))
+    filename = filedialog.askopenfilename(initialdir = "/", title = "Select a File", filetypes = (("Text files", "*.txt*"), ("all files", "*.*")))
   else:
-    filename = filedialog.asksaveasfilename(initialdir = "/usr/bin/arrow_main", title = "Select a File", filetypes = (("Text files", "*.txt*"), ("all files", "*.*")))
+    filename = filedialog.asksaveasfilename(initialdir = "/", title = "Select a File", filetypes = (("Text files", "*.txt*"), ("all files", "*.*")))
   CurPath = filename
   return filename
 
